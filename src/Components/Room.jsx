@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'; // Importez PropTypes
 
 const Room = ({ data, onCombat, onHeal, onUpgrade }) => {
     return (
@@ -15,6 +16,16 @@ const Room = ({ data, onCombat, onHeal, onUpgrade }) => {
             ) : null}
         </div>
     );
+};
+
+// Définition des PropTypes pour Room
+Room.propTypes = {
+    data: PropTypes.shape({
+        type: PropTypes.string.isRequired // Assurez-vous que data.type est une chaîne de caractères et qu'elle est requise
+    }).isRequired,
+    onCombat: PropTypes.func, // onCombat est une fonction
+    onHeal: PropTypes.func, // onHeal est une fonction
+    onUpgrade: PropTypes.func // onUpgrade est une fonction
 };
 
 export default Room;
